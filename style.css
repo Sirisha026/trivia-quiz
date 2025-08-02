@@ -1,0 +1,315 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #2a0066, #660099);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+nav {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+}
+
+.nav-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ffcc00;
+}
+
+.nav-links a {
+  color: #ffcc00;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-shadow: 0 0 5px #ffcc00;
+}
+
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.auth-fields input {
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 300px;
+}
+.modal-content {
+  background: radial-gradient(circle, #660099, #2a0066);
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 20px #ffcc00;
+  width: 350px;
+  max-width: 90vw; 
+  position: relative;
+}
+
+.modal-content input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.modal-content button {
+  background: linear-gradient(45deg, #ffcc00, #ff00ff);
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#authSwitch {
+  cursor: pointer;
+  color: #ffcc00;
+  margin-top: 10px;
+}
+
+.container {
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+  min-width: 300px;
+  margin: 80px auto 0; 
+  overflow-x: hidden;
+  position: relative;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh; 
+}
+
+.about-section, .home-section, .suggestions-section, .quiz-section, .results {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.home-section, .suggestions-section, .quiz-section, .results {
+  display: none;
+}
+
+#about.active, #home.active, #suggestions.active, #quizSection.active, #results.active {
+  display: block;
+}
+
+.topic-selection {
+  text-align: center;
+  margin-top: 20px;
+}
+.topic-selection select {
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-right: 10px;
+  background: #ffcc00;
+  color: black;
+}
+.topic-selection button {
+  background: linear-gradient(45deg, #ffcc00, #ff00ff);
+  color: black;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.suggestions-section textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.suggestions-section button {
+  background: linear-gradient(45deg, #ffcc00, #ff00ff);
+  color: black;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.quiz-section {
+  background: radial-gradient(circle, #330066, #1a0033);
+  border: 2px solid #ffcc00;
+}
+.time-dial {
+  width: 100px;
+  height: 100px;
+  background: conic-gradient(#ffcc00, #ff00ff, #00ffff, #ffcc00);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  cursor: grab;
+  box-shadow: 0 0 20px #ffcc00;
+  animation: spin 10s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #333;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #ffcc00, #ff00ff);
+  border-radius: 5px;
+  width: 0%;
+  transition: width 0.5s;
+}
+.question {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px #ffcc00;
+}
+.options button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+.options button:hover {
+  transform: scale(1.05);
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+.controls button {
+  background: linear-gradient(45deg, #ffcc00, #ff00ff);
+  color: black;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.score {
+  font-size: 1.2rem;
+  text-align: center;
+}
+.results {
+  text-align: center;
+}
+.review-section {
+  margin: 20px 0;
+}
+.review-emojis button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0 10px;
+}
+.star-rating {
+  margin: 10px 0;
+}
+.star-rating span {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ccc;
+}
+.star-rating .filled {
+  color: #ffcc00;
+}
+.text-feedback {
+  margin-top: 10px;
+}
+.text-feedback textarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.text-feedback button {
+  background: linear-gradient(45deg, #ffcc00, #ff00ff);
+  color: black;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.results button {
+  background: linear-gradient(45deg, #ffcc00, #ff00ff);
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #ffcc00;
+  animation: fall 2s linear;
+}
+@keyframes fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+@media (max-width: 600px) {
+  .question {
+    font-size: 1.2rem;
+  }
+  .options button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+  .time-dial {
+    width: 80px;
+    height: 80px;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+    margin: 0 5px;
+  }
+  .star-rating span {
+    font-size: 1.2rem;
+  }
+}

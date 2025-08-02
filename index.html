@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Machine Trivia Challenge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-title">Time Machine Trivia Challenge</div>
+    <div class="nav-links">
+      <a href="#about">About Us</a>
+      <a href="#home">Home</a>
+      <a href="#suggestions">Suggestions</a>
+      <a href="#" id="authLink" onclick="showAuthModal()">Sign In</a>
+    </div>
+  </nav>
+
+  <div class="auth-modal" id="authModal">
+  <div class="modal-content">
+    <h2 id="authTitle">Sign In</h2>
+    <form id="authForm">
+      <div class="auth-fields" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+        <input type="text" id="username" placeholder="Username" required style="margin-bottom: 15px; max-width: 300px; width: 100%;">
+        <div id="nameField" style="display: none; width: 100%;">
+          <input type="text" id="name" placeholder="Name" style="margin-bottom: 15px; max-width: 300px; width: 100%;">
+        </div>
+        <div id="emailField" style="display: none; width: 100%;">
+          <input type="email" id="email" placeholder="Email" style="margin-bottom: 15px; max-width: 300px; width: 100%;">
+        </div>
+        <input type="password" id="password" placeholder="Password" required style="margin-bottom: 15px; max-width: 300px; width: 100%;">
+        <div id="confirmPasswordField" style="display: none; width: 100%;">
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" style="margin-bottom: 15px; max-width: 300px; width: 100%;">
+        </div>
+      </div>
+      <button type="submit" id="authSubmit" style="margin-top: 20px;">Sign In</button>
+      <p id="authSwitch" onclick="toggleAuthMode()" style="text-align: center;">Need an account? Sign Up</p>
+      <p id="authError" style="display: none; color: red; text-align: center;"></p>
+    </form>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="about-section" id="about">
+      <h2>About Us</h2>
+      <p>We are time travelers passionate about trivia! Our mission is to make learning fun and interactive through quizzes that span cultures, history, and modern events. Join us on this cosmic journey! 🌌</p>
+    </div>
+
+    <div class="home-section" id="home">
+      <h2>Welcome to the Time Machine Trivia Challenge! 🚀</h2>
+      <p>Select a topic to begin your journey through time and knowledge.</p>
+      <div class="topic-selection">
+        <label for="topicSelect">Choose a Topic:</label>
+        <select id="topicSelect">
+          <option value="All Topics">All Topics</option>
+          <option value="Indian History">Indian History</option>
+          <option value="Bollywood Movies">Bollywood Movies</option>
+          <option value="Indian Songs">Indian Songs</option>
+          <option value="Indian Current Affairs">Indian Current Affairs</option>
+          <option value="American History">American History</option>
+          <option value="Hollywood Movies">Hollywood Movies</option>
+          <option value="American Songs">American Songs</option>
+          <option value="American Current Affairs">American Current Affairs</option>
+          <option value="Science">Science</option>
+          <option value="Literature">Literature</option>
+          <option value="Cartoons">Cartoons</option>
+        </select>
+        <button onclick="startQuiz()">Start Quiz</button>
+      </div>
+    </div>
+
+    <div class="suggestions-section" id="suggestions">
+      <h2>Suggestions Page</h2>
+      <p>We’d love to hear your thoughts on how we can improve the Time Machine Trivia Challenge!</p>
+      <form id="suggestionsForm">
+        <textarea id="suggestionText" placeholder="Share your suggestions..." required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <p id="thanksMessage" style="display: none;">Thanks for your suggestions!</p>
+    </div>
+
+    <div class="quiz-section" id="quizSection">
+      <div class="time-dial" id="timeDial"></div>
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+      <div class="controls">
+        <button id="hintBtn">Hint Vortex</button>
+        <button id="speakBtn">Speak Question</button>
+      </div>
+      <div class="score" id="score">Score: 0</div>
+    </div>
+
+    <div class="results" id="results" style="display: none;">
+      <h2>Your Results</h2>
+      <p id="finalScore"></p>
+      <h3>Leaderboard</h3>
+      <ul id="leaderboard"></ul>
+      <h3>How was your experience? 😊</h3>
+      <div class="review-section">
+        <div class="review-emojis">
+          <button onclick="submitEmojiReview('😊')">😊</button>
+          <button onclick="submitEmojiReview('😐')">😐</button>
+          <button onclick="submitEmojiReview('😢')">😢</button>
+        </div>
+        <div class="star-rating">
+          <label>Rate us (1-5 stars):</label>
+          <div id="stars">
+            <span onclick="rateStar(1)">★</span>
+            <span onclick="rateStar(2)">★</span>
+            <span onclick="rateStar(3)">★</span>
+            <span onclick="rateStar(4)">★</span>
+            <span onclick="rateStar(5)">★</span>
+          </div>
+        </div>
+        <div class="text-feedback">
+          <label for="feedbackText">Your Feedback:</label>
+          <textarea id="feedbackText" placeholder="Tell us more..."></textarea>
+          <button onclick="submitTextFeedback()">Submit Feedback</button>
+        </div>
+      </div>
+      <button onclick="restartQuiz()">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
